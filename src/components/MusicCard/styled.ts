@@ -64,8 +64,15 @@ position: relative;
 width: 4rem;
 aspect-ratio: 1/1;
 
-
 img{
-    
+    cursor: pointer;
+   
+    &:hover{
+        filter: brightness(90%);
+        
+    }
+    &:active{
+        transform: scale(0.95);
+    }
 }
 `

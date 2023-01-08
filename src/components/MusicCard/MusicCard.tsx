@@ -1,10 +1,20 @@
+import Image from 'next/image'
 import * as Styled from './styled'
 
+import { Roboto } from '@next/font/google'
+
+const roboto = Roboto({weight: ['700', '400'], subsets: ['latin']})
 
 export default function MusicCard(){
     return(
         <Styled.MusicCard>
-            <h1>Music Card</h1>
+            <Styled.MusicInfo>
+            <Styled.ImageBox>
+                <Image src='/image.png' alt='' fill/>
+            </Styled.ImageBox>
+            <Styled.Title className={roboto.className}>Acorda Devinho</Styled.Title>
+            </Styled.MusicInfo>
+           
         </Styled.MusicCard>
     )
 

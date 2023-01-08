@@ -1,9 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import {MusicCard} from './../components/components'
-import { Roboto } from '@next/font/google'
-
-const roboto = Roboto({weight: ['700', '400'], subsets: ['latin']})
 
 export default function Home() {
   return (

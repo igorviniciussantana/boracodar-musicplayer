@@ -12,7 +12,10 @@ export default function MusicCard(){
             <Styled.ImageBox>
                 <Image src='/image.png' alt='' fill/>
             </Styled.ImageBox>
+            <Styled.MusicNames>
             <Styled.Title className={roboto.className}>Acorda Devinho</Styled.Title>
+            <Styled.Subtitle>Banda Rocketseat</Styled.Subtitle>
+            </Styled.MusicNames>
             </Styled.MusicInfo>
            
         </Styled.MusicCard>

@@ -1,12 +1,12 @@
 import Image from "next/image";
 import * as Styled from "./styled";
 import { Roboto } from "@next/font/google";
-import { useEffect, useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 const robotoBold = Roboto({ weight: "700", subsets: ["latin"] });
 const robotoRegular = Roboto({ weight: "400", subsets: ["latin"] });
 
 export default function MusicCard() {
-    const audioRef = useRef<HTMLAudioElement>(null)
+    const audioRef = useRef() as MutableRefObject<HTMLAudioElement>;
 
     const [isPlaying, setIsPlaying] = useState(false)
     const [duration, setDuration] = useState<number | undefined>(0)
@@ -21,19 +21,22 @@ export default function MusicCard() {
     }
   
     useEffect(()=> {
-      setDuration(duration == 0 ? audioRef.current?.duration : duration)
+    (duration == 0 ?  setDuration(audioRef.current?.duration / 60) : setDuration(duration))
 
       if (!audioRef.current) {
           return;
       }
   
       if (isPlaying) {
-          audioRef.current.play()
-          setInterval(() => typeof duration == 'number' ? setDuration( duration - 0.01 ) : 0, 1000)
+          audioRef.current.play();
+      const timer = setInterval(() => typeof duration == 'number' ? setDuration( (duration) - 0.01 ) : 0, 1000);
+      return () => clearInterval(timer);
+
+
       } else {
           audioRef.current.pause()
       }
-    }, [isPlaying])
+    }, [isPlaying, duration])
 
    
 
@@ -73,7 +76,7 @@ export default function MusicCard() {
             onPlay={() => setPlayingState(true)}
             onPause={() => setPlayingState(false)}
         />
-{ typeof duration == 'number' ? (duration / 60).toString().substring(0, 4) : '00:00'}
+{ typeof duration == 'number' ? (duration).toString().substring(0, 4) : '00:00'}
        
     </Styled.MusicCard>
     

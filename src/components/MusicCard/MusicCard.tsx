@@ -9,26 +9,34 @@ export default function MusicCard() {
     const audioRef = useRef<HTMLAudioElement>(null)
 
     const [isPlaying, setIsPlaying] = useState(false)
+    const [duration, setDuration] = useState<number | undefined>(0)
   
     function setPlayingState(state : any) {
       setIsPlaying(state)
     }
-  
+    {console.log(audioRef)}
+
     function toggleIsPlaying() {
       setIsPlaying(!isPlaying)
     }
   
     useEffect(()=> {
+      setDuration(duration == 0 ? audioRef.current?.duration : duration)
+
       if (!audioRef.current) {
           return;
       }
   
       if (isPlaying) {
           audioRef.current.play()
+          setInterval(() => typeof duration == 'number' ? setDuration( duration - 0.01 ) : 0, 1000)
       } else {
           audioRef.current.pause()
       }
     }, [isPlaying])
+
+   
+
       return (
     <Styled.MusicCard>
       <Styled.MusicInfo>
@@ -49,7 +57,9 @@ export default function MusicCard() {
           <Image src="/icons/play-back.svg" alt="back-button" fill />
         </Styled.IconBox>
         <Styled.IconBox>
-          <Image src="/icons/play.svg" onClick={toggleIsPlaying} alt="back-button" fill />
+          
+          {!isPlaying ? (<Image src="/icons/play.svg" onClick={toggleIsPlaying} alt="back-button" fill />) : (<Image src="/icons/pause.svg" onClick={toggleIsPlaying} alt="back-button" fill />)}
+          
         </Styled.IconBox>
         <Styled.IconBox>
           <Image src="/icons/play-forward.svg" alt="back-button" fill />
@@ -58,11 +68,14 @@ export default function MusicCard() {
 
       <audio 
             src='https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3' 
-            autoPlay={true} 
+            autoPlay={false} 
             ref={audioRef}
             onPlay={() => setPlayingState(true)}
             onPause={() => setPlayingState(false)}
         />
+{ typeof duration == 'number' ? (duration / 60).toString().substring(0, 4) : '00:00'}
+       
     </Styled.MusicCard>
+    
   );
 }

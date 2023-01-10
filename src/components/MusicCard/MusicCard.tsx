@@ -21,15 +21,22 @@ export default function MusicCard() {
     setIsPlaying(!isPlaying);
   }
 
+  function formatDuration(durationToFormat : number){
+    const formatedDuration = (durationToFormat) - 0.60 > Math.floor(durationToFormat) ? Math.ceil(durationToFormat) + ( durationToFormat - (Math.floor(durationToFormat) + 0.6)) : durationToFormat
+    return formatedDuration
+  }
   function restartAudio(){
     audioRef.current.currentTime = 0;
-    setDuration(audioRef.current?.duration / 60)
+    setDuration(formatDuration(audioRef.current?.duration / 60))
   }
 
 
   useEffect(() => {
+    const initialDuration = audioRef.current?.duration / 60;
+
+
     duration == 0
-      ? setDuration(audioRef.current?.duration / 60)
+      ? setDuration(formatDuration(initialDuration))
       : setDuration(parseFloat(typeof duration == "number" ? duration.toPrecision(3) : '0'));
 
     if (!audioRef.current) {
@@ -90,7 +97,7 @@ export default function MusicCard() {
       </Styled.Icons>
 
       <audio
-        src="https://audioplayer.madza.dev/Madza-Chords_of_Life.mp3"
+        src="/acorda-pedrinho.mp3"
         autoPlay={false}
         ref={audioRef}
         onPlay={() => setPlayingState(true)}

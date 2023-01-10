@@ -10,9 +10,7 @@ export default function MusicCard() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState<number | undefined>(0);
-  const [remainingDuration, setRemainingDuration] = useState<
-    number | undefined
-  >(0);
+  const [remainingDuration, setRemainingDuration] = useState(0);
 
   function setPlayingState(state: any) {
     setIsPlaying(state);
@@ -39,6 +37,7 @@ export default function MusicCard() {
         : durationToFormat;
     return formatedDuration;
   }
+
   function restartAudio() {
     audioRef.current.currentTime = 0;
     setDuration(formatDuration(audioRef.current?.duration / 60));
@@ -62,12 +61,16 @@ export default function MusicCard() {
     if (isPlaying) {
       audioRef.current.play();
       const timer = setInterval(
-        () =>
-          typeof duration == "number"
-            ? Number.isInteger(duration * duration)
+        () => {
+          setRemainingDuration( remainingDuration + 0.01)
+         if( typeof duration == "number"){
+            const timerVerify = Number.isInteger(duration * duration)
               ? setDuration(duration - 0.41)
               : setDuration(duration - 0.01)
-            : 0,
+
+              return timerVerify
+            }
+          },
         1000
       );
       return () => clearInterval(timer);
@@ -131,6 +134,9 @@ export default function MusicCard() {
       />
       <Styled.Timer className={robotoRegular.className}>
         {typeof duration == "number" ? formatTimer(duration) : "00:00"}
+      </Styled.Timer>
+      <Styled.Timer className={robotoRegular.className}>
+        {remainingDuration}
       </Styled.Timer>
     </Styled.MusicCard>
   );

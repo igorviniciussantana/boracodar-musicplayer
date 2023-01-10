@@ -9,8 +9,11 @@ export default function MusicCard() {
   const audioRef = useRef() as MutableRefObject<HTMLAudioElement>;
 
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+
   const [duration, setDuration] = useState<number | undefined>(0);
   const [remainingDuration, setRemainingDuration] = useState(0);
+  const [initialDuration, setInitialDuration] = useState(0);
 
   function setPlayingState(state: any) {
     setIsPlaying(state);
@@ -55,7 +58,14 @@ export default function MusicCard() {
   }
 
   useEffect(() => {
-    const initialDuration = audioRef.current?.duration / 60;
+    if (!audioRef.current) {
+      return;
+    }
+
+    if (isLoaded) {
+      setInitialDuration(audioRef.current.duration / 60);
+      setIsLoaded(true);
+    }
 
     setRemainingDuration(formatRemainingDuration(remainingDuration));
 
@@ -67,12 +77,11 @@ export default function MusicCard() {
           )
         );
 
-    if (!audioRef.current) {
-      return;
-    }
-
     if (isPlaying) {
       audioRef.current.play();
+      if (audioRef.current.currentTime == 0) {
+      }
+
       const timer = setInterval(() => {
         setRemainingDuration(
           parseFloat((remainingDuration + 0.01).toPrecision(3))
@@ -90,7 +99,7 @@ export default function MusicCard() {
     } else {
       audioRef.current.pause();
     }
-  }, [isPlaying, duration]);
+  }, [isPlaying, duration, remainingDuration, initialDuration]);
 
   return (
     <Styled.MusicCard>
@@ -144,17 +153,22 @@ export default function MusicCard() {
         ref={audioRef}
         onPlay={() => setPlayingState(true)}
         onPause={() => setPlayingState(false)}
+        onLoadedMetadata={() =>
+          setInitialDuration(audioRef.current.duration / 60)
+        }
+        preload="metadata"
       />
 
-<Styled.TimerWrapper className="timer">
-      <Styled.Timer className={robotoRegular.className}>
-        {typeof duration != "number"  || Number.isNaN(duration) ? "00:00" : formatTimer(duration).slice(0, 5)}
-      </Styled.Timer>
-      <Styled.Timer className={robotoRegular.className}>
-        {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}
-      </Styled.Timer>
+      <Styled.TimerWrapper className="timer">
+        <Styled.Timer className={robotoRegular.className}>
+          {typeof duration != "number"
+            ? "00:00"
+            : formatTimer(duration).slice(0, 5)}
+        </Styled.Timer>
+        <Styled.Timer className={robotoRegular.className}>
+          {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}
+        </Styled.Timer>
       </Styled.TimerWrapper>
     </Styled.MusicCard>
-    
   );
 }

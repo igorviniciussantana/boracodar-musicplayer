@@ -9,7 +9,7 @@ export default function MusicCard() {
   const audioRef = useRef() as MutableRefObject<HTMLAudioElement>;
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState<number | undefined>(0);
+  const [duration, setDuration] = useState<number | undefined>(audioRef.current?.duration / 60);
   const [remainingDuration, setRemainingDuration] = useState(0);
 
   function setPlayingState(state: any) {

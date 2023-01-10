@@ -22,15 +22,14 @@ export default function MusicCard() {
     setIsPlaying(!isPlaying);
   }
 
-  function formatTimer(time : number){
-
-if(time.toString().length == 3){
- return `0${time.toString().replace(".", ":")}0`
-}else if(time.toString().length == 1){
-  return `0${time.toString()}:00`
-}else{
-  return `0${time.toString().replace(".", ":")}`
-}
+  function formatTimer(time: number) {
+    if (time.toString().length == 3) {
+      return `0${time.toString().replace(".", ":")}0`;
+    } else if (time.toString().length == 1) {
+      return `0${time.toString()}:00`;
+    } else {
+      return `0${time.toString().replace(".", ":")}`;
+    }
   }
   function formatDuration(durationToFormat: number) {
     const formatedDuration =
@@ -131,9 +130,7 @@ if(time.toString().length == 3){
         onPause={() => setPlayingState(false)}
       />
       <Styled.Timer className={robotoRegular.className}>
-        {typeof duration == "number"
-          ? formatTimer(duration)
-          : "00:00"}
+        {typeof duration == "number" ? formatTimer(duration) : "00:00"}
       </Styled.Timer>
     </Styled.MusicCard>
   );

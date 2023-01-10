@@ -9,7 +9,7 @@ export default function MusicCard() {
   const audioRef = useRef() as MutableRefObject<HTMLAudioElement>;
 
   const [isPlaying, setIsPlaying] = useState(false);
-  const [duration, setDuration] = useState<number | undefined>(audioRef.current?.duration / 60);
+  const [duration, setDuration] = useState<number | undefined>(0);
   const [remainingDuration, setRemainingDuration] = useState(0);
 
   function setPlayingState(state: any) {
@@ -148,7 +148,7 @@ export default function MusicCard() {
 
 <Styled.TimerWrapper className="timer">
       <Styled.Timer className={robotoRegular.className}>
-        {typeof duration == "number" ? formatTimer(duration).slice(0, 5) : "00:00"}
+        {typeof duration != "number"  || Number.isNaN(duration) ? "00:00" : formatTimer(duration).slice(0, 5)}
       </Styled.Timer>
       <Styled.Timer className={robotoRegular.className}>
         {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}

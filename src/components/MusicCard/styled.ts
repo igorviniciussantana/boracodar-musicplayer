@@ -105,6 +105,10 @@ export const IconBox = styled.div`
   }
 `;
 
+export const ProgressWrapper = styled.div`
+width: 100%;
+`
+
 export const TimerWrapper = styled.div`
   display: flex;
   width: 100%;

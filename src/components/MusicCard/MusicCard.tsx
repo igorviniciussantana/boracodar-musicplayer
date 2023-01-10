@@ -14,9 +14,6 @@ export default function MusicCard() {
   function setPlayingState(state: any) {
     setIsPlaying(state);
   }
-  {
-    console.log(audioRef);
-  }
 
   function toggleIsPlaying() {
     setIsPlaying(!isPlaying);
@@ -25,7 +22,7 @@ export default function MusicCard() {
   useEffect(() => {
     duration == 0
       ? setDuration(audioRef.current?.duration / 60)
-      : setDuration(duration);
+      : setDuration(parseFloat(typeof duration == "number" ? duration.toPrecision(3) : '0'));
 
     if (!audioRef.current) {
       return;
@@ -34,7 +31,7 @@ export default function MusicCard() {
     if (isPlaying) {
       audioRef.current.play();
       const timer = setInterval(
-        () => (typeof duration == "number" ? setDuration(duration - 0.01) : 0),
+        () => (typeof duration == "number" ? Number.isInteger(duration * duration) ? setDuration(duration - 0.41) : setDuration(duration - 0.01) : 0),
         1000
       );
       return () => clearInterval(timer);
@@ -92,7 +89,7 @@ export default function MusicCard() {
         onPause={() => setPlayingState(false)}
       />
       {typeof duration == "number"
-        ? duration.toString().substring(0, 4)
+        ? duration.toString().length == 3 ? `0${duration.toString().replace('.', ':')}0` : `0${duration.toString().replace('.', ':')}`
         : "00:00"}
     </Styled.MusicCard>
   );

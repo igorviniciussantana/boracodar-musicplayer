@@ -1,127 +1,117 @@
 import styled from "styled-components";
 
 export const MusicCard = styled.main`
-background-color: #2A2141;
-border-radius: 0.5rem;
-color: #E1E1E6;
-display: flex;
-    align-items: center;
-    flex-direction: column;
+  background-color: #2a2141;
+  border-radius: 0.5rem;
+  color: #e1e1e6;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-
-@media screen and (min-width: 800px){
+  @media screen and (min-width: 800px) {
     width: clamp(500px, 60vw, 1000px);
     padding: 3rem;
 
-    .timer{
+    .timer {
       display: none;
     }
-}
+  }
 
-@media screen and (min-width: 480px) and (max-width: 800px){
-  width: clamp(450px, 80vw, 720px );
- padding: 2rem;
-}
+  @media screen and (min-width: 480px) and (max-width: 800px) {
+    width: clamp(450px, 80vw, 720px);
+    padding: 2rem;
+  }
 
-@media screen and (max-width: 480px){
-  width: clamp(300px, 80vw, 470px );
-   padding: 2rem;
-border-radius: 0.5rem;
-
-}
-`
+  @media screen and (max-width: 480px) {
+    width: clamp(300px, 80vw, 470px);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+`;
 
 export const MusicInfo = styled.div`
-display: flex;
-width: 100%;
-column-gap: 2rem;
+  display: flex;
+  width: 100%;
+  column-gap: 2rem;
 
-@media screen and (max-width: 480px) {
-  flex-direction: column;
-  row-gap: 1rem;
-column-gap: 0;
-
-}
-`
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
+    row-gap: 1rem;
+    column-gap: 0;
+  }
+`;
 
 export const MusicNames = styled.div`
-display: flex;
-justify-content: center;
-flex-direction: column;
-`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
 export const Title = styled.h1`
-font-weight: inherit;
-font-size: clamp(2rem, 4vw, 5rem);
-`
+  font-weight: inherit;
+  font-size: clamp(2rem, 4vw, 5rem);
+`;
 
 export const Subtitle = styled.h2`
-opacity: 0.67;
-margin-top: 0.5rem;
-font-size: clamp(1.6rem, 2vw, 3rem);
-
-`
-
+  opacity: 0.67;
+  margin-top: 0.5rem;
+  font-size: clamp(1.6rem, 2vw, 3rem);
+`;
 
 export const ImageBox = styled.div`
-position: relative;
+  position: relative;
 
-@media screen and (min-width: 800px){
-width: 12rem;
-  
-}
+  @media screen and (min-width: 800px) {
+    width: 12rem;
+  }
 
-@media screen and (min-width: 480px) and (max-width: 800px){
-  width: clamp(450px, 80vw, 720px );
-  width: 8rem;
- 
-}
-@media screen and (max-width: 480px){
-  width: 100%;
- 
-}
+  @media screen and (min-width: 480px) and (max-width: 800px) {
+    width: clamp(450px, 80vw, 720px);
+    width: 8rem;
+  }
+  @media screen and (max-width: 480px) {
+    width: 100%;
+  }
 
-aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
 
-img{
-border-radius: 0.4rem;
-}
-`
+  img {
+    border-radius: 0.4rem;
+  }
+`;
 
 export const Icons = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
-min-width: 60%;
-column-gap: 1rem;
-margin-top: 2rem;
-`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 60%;
+  column-gap: 1rem;
+  margin-top: 2rem;
+`;
 
 export const IconBox = styled.div`
-position: relative;
-width: 4rem;
-aspect-ratio: 1/1;
+  position: relative;
+  width: 4rem;
+  aspect-ratio: 1/1;
 
-img{
+  img {
     cursor: pointer;
-   
-    &:hover{
-        filter: brightness(90%);
-        
+
+    &:hover {
+      filter: brightness(90%);
     }
-    &:active{
-        transform: scale(0.95);
+    &:active {
+      transform: scale(0.95);
     }
-}
-`
+  }
+`;
 
 export const TimerWrapper = styled.div`
-display: flex;
-width: 100%;
-justify-content: space-between;
-margin-top: 2rem;
-`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 2rem;
+`;
 
 export const Timer = styled.span`
-font-size: 1.25rem;
-
-`
+  font-size: 1.25rem;
+`;

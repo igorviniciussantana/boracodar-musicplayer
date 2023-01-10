@@ -10,8 +10,9 @@ export default function MusicCard() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState<number | undefined>(0);
-  const [remainingDuration, setRemainingDuration] = useState<number | undefined>(0);
-
+  const [remainingDuration, setRemainingDuration] = useState<
+    number | undefined
+  >(0);
 
   function setPlayingState(state: any) {
     setIsPlaying(state);
@@ -21,23 +22,39 @@ export default function MusicCard() {
     setIsPlaying(!isPlaying);
   }
 
-  function formatDuration(durationToFormat : number){
-    const formatedDuration = (durationToFormat) - 0.60 > Math.floor(durationToFormat) ? Math.ceil(durationToFormat) + ( durationToFormat - (Math.floor(durationToFormat) + 0.6)) : durationToFormat
-    return formatedDuration
-  }
-  function restartAudio(){
-    audioRef.current.currentTime = 0;
-    setDuration(formatDuration(audioRef.current?.duration / 60))
-  }
+  function formatTimer(time : number){
 
+if(time.toString().length == 3){
+ return `0${time.toString().replace(".", ":")}0`
+}else if(time.toString().length == 1){
+  return `0${time.toString()}:00`
+}else{
+  return `0${time.toString().replace(".", ":")}`
+}
+  }
+  function formatDuration(durationToFormat: number) {
+    const formatedDuration =
+      durationToFormat - 0.6 > Math.floor(durationToFormat)
+        ? Math.ceil(durationToFormat) +
+          (durationToFormat - (Math.floor(durationToFormat) + 0.6))
+        : durationToFormat;
+    return formatedDuration;
+  }
+  function restartAudio() {
+    audioRef.current.currentTime = 0;
+    setDuration(formatDuration(audioRef.current?.duration / 60));
+  }
 
   useEffect(() => {
     const initialDuration = audioRef.current?.duration / 60;
 
-
     duration == 0
       ? setDuration(formatDuration(initialDuration))
-      : setDuration(parseFloat(typeof duration == "number" ? duration.toPrecision(3) : '0'));
+      : setDuration(
+          parseFloat(
+            typeof duration == "number" ? duration.toPrecision(3) : "0"
+          )
+        );
 
     if (!audioRef.current) {
       return;
@@ -46,7 +63,12 @@ export default function MusicCard() {
     if (isPlaying) {
       audioRef.current.play();
       const timer = setInterval(
-        () => (typeof duration == "number" ? Number.isInteger(duration * duration) ? setDuration(duration - 0.41) : setDuration(duration - 0.01) : 0),
+        () =>
+          typeof duration == "number"
+            ? Number.isInteger(duration * duration)
+              ? setDuration(duration - 0.41)
+              : setDuration(duration - 0.01)
+            : 0,
         1000
       );
       return () => clearInterval(timer);
@@ -72,7 +94,12 @@ export default function MusicCard() {
       </Styled.MusicInfo>
       <Styled.Icons>
         <Styled.IconBox>
-          <Image src="/icons/play-back.svg"  onClick={restartAudio} alt="back-button" fill />
+          <Image
+            src="/icons/play-back.svg"
+            onClick={restartAudio}
+            alt="back-button"
+            fill
+          />
         </Styled.IconBox>
         <Styled.IconBox>
           {!isPlaying ? (
@@ -103,9 +130,11 @@ export default function MusicCard() {
         onPlay={() => setPlayingState(true)}
         onPause={() => setPlayingState(false)}
       />
-     <Styled.Timer className={robotoRegular.className}> {typeof duration == "number"
-        ? duration.toString().length == 3 ? `0${duration.toString().replace('.', ':')}0` : `0${duration.toString().replace('.', ':')}`
-        : "00:00"}</Styled.Timer>
+      <Styled.Timer className={robotoRegular.className}>
+        {typeof duration == "number"
+          ? formatTimer(duration)
+          : "00:00"}
+      </Styled.Timer>
     </Styled.MusicCard>
   );
 }

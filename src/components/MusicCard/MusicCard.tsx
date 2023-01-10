@@ -148,7 +148,7 @@ export default function MusicCard() {
 
 <Styled.TimerWrapper className="timer">
       <Styled.Timer className={robotoRegular.className}>
-        {typeof duration == "number" ? formatTimer(duration) : "00:00"}
+        {typeof duration == "number" ? formatTimer(duration).slice(0, 5) : "00:00"}
       </Styled.Timer>
       <Styled.Timer className={robotoRegular.className}>
         {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}

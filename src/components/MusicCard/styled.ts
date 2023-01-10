@@ -99,3 +99,7 @@ img{
     }
 }
 `
+
+export const Timer = styled.span`
+
+`

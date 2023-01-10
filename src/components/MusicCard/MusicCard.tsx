@@ -10,6 +10,8 @@ export default function MusicCard() {
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [duration, setDuration] = useState<number | undefined>(0);
+  const [remainingDuration, setRemainingDuration] = useState<number | undefined>(0);
+
 
   function setPlayingState(state: any) {
     setIsPlaying(state);
@@ -18,6 +20,12 @@ export default function MusicCard() {
   function toggleIsPlaying() {
     setIsPlaying(!isPlaying);
   }
+
+  function restartAudio(){
+    audioRef.current.currentTime = 0;
+    setDuration(audioRef.current?.duration / 60)
+  }
+
 
   useEffect(() => {
     duration == 0
@@ -57,7 +65,7 @@ export default function MusicCard() {
       </Styled.MusicInfo>
       <Styled.Icons>
         <Styled.IconBox>
-          <Image src="/icons/play-back.svg" alt="back-button" fill />
+          <Image src="/icons/play-back.svg"  onClick={restartAudio} alt="back-button" fill />
         </Styled.IconBox>
         <Styled.IconBox>
           {!isPlaying ? (
@@ -88,9 +96,9 @@ export default function MusicCard() {
         onPlay={() => setPlayingState(true)}
         onPause={() => setPlayingState(false)}
       />
-      {typeof duration == "number"
+     <Styled.Timer className={robotoRegular.className}> {typeof duration == "number"
         ? duration.toString().length == 3 ? `0${duration.toString().replace('.', ':')}0` : `0${duration.toString().replace('.', ':')}`
-        : "00:00"}
+        : "00:00"}</Styled.Timer>
     </Styled.MusicCard>
   );
 }

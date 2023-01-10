@@ -2,40 +2,32 @@ import styled from "styled-components";
 
 export const MusicCard = styled.main`
 background-color: #2A2141;
-padding: 3rem;
 border-radius: 0.5rem;
 color: #E1E1E6;
-
+display: flex;
+    align-items: center;
+    flex-direction: column;
 
 
 @media screen and (min-width: 800px){
-    width: clamp(500px, 50vw 1000px);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    width: clamp(500px, 60vw, 1000px);
+    padding: 3rem;
+
+    .timer{
+      display: none;
+    }
 }
 
-
-@import '@radix-ui/colors/blackA.css';
-
-.ProgressRoot {
-  position: relative;
-  overflow: hidden;
-  background: rgba(217, 217, 217, 0.3);
-  border-radius: 99999px;
-  width: 300px;
-  height: 25px;
-
-  /* Fix overflow clipping in Safari */
-  /* https://gist.github.com/domske/b66047671c780a238b51c51ffde8d3a0 */
-  transform: translateZ(0);
+@media screen and (min-width: 480px) and (max-width: 800px){
+  width: clamp(450px, 80vw, 720px );
+ padding: 2rem;
 }
 
-.ProgressIndicator {
-  background-color: rgba(217, 217, 217, 0.8);
-  width: 100%;
-  height: 100%;
-  transition: transform 660ms cubic-bezier(0.65, 0, 0.35, 1);
+@media screen and (max-width: 480px){
+  width: clamp(300px, 80vw, 470px );
+   padding: 2rem;
+border-radius: 0.5rem;
+
 }
 `
 
@@ -43,6 +35,13 @@ export const MusicInfo = styled.div`
 display: flex;
 width: 100%;
 column-gap: 2rem;
+
+@media screen and (max-width: 480px) {
+  flex-direction: column;
+  row-gap: 1rem;
+column-gap: 0;
+
+}
 `
 
 export const MusicNames = styled.div`
@@ -52,25 +51,39 @@ flex-direction: column;
 `
 export const Title = styled.h1`
 font-weight: inherit;
-font-size: clamp(3rem, 3vw, 6rem);
+font-size: clamp(2rem, 4vw, 5rem);
 `
 
 export const Subtitle = styled.h2`
 opacity: 0.67;
 margin-top: 0.5rem;
-font-size: 2rem;
+font-size: clamp(1.6rem, 2vw, 3rem);
 
 `
 
 
 export const ImageBox = styled.div`
 position: relative;
+
+@media screen and (min-width: 800px){
 width: 12rem;
+  
+}
+
+@media screen and (min-width: 480px) and (max-width: 800px){
+  width: clamp(450px, 80vw, 720px );
+  width: 8rem;
+ 
+}
+@media screen and (max-width: 480px){
+  width: 100%;
+ 
+}
+
 aspect-ratio: 1/1;
 
 img{
 border-radius: 0.4rem;
-
 }
 `
 
@@ -78,7 +91,8 @@ export const Icons = styled.div`
 display: flex;
 align-items: center;
 justify-content: space-between;
-width: 60%;
+min-width: 60%;
+column-gap: 1rem;
 margin-top: 2rem;
 `
 
@@ -100,6 +114,14 @@ img{
 }
 `
 
+export const TimerWrapper = styled.div`
+display: flex;
+width: 100%;
+justify-content: space-between;
+margin-top: 2rem;
+`
+
 export const Timer = styled.span`
+font-size: 1.25rem;
 
 `

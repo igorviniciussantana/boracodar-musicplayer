@@ -145,12 +145,16 @@ export default function MusicCard() {
         onPlay={() => setPlayingState(true)}
         onPause={() => setPlayingState(false)}
       />
+
+<Styled.TimerWrapper className="timer">
       <Styled.Timer className={robotoRegular.className}>
         {typeof duration == "number" ? formatTimer(duration) : "00:00"}
       </Styled.Timer>
       <Styled.Timer className={robotoRegular.className}>
         {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}
       </Styled.Timer>
+      </Styled.TimerWrapper>
     </Styled.MusicCard>
+    
   );
 }

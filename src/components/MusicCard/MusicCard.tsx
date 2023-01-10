@@ -29,6 +29,12 @@ export default function MusicCard() {
       return `0${time.toString().replace(".", ":")}`;
     }
   }
+
+function formatRemainingDuration(remainingDurationToFormat : number){
+ const formatedRemainingDuration = Number.isInteger(remainingDurationToFormat - 0.6) ? Math.ceil(remainingDurationToFormat) : remainingDurationToFormat;
+return formatedRemainingDuration;
+}
+
   function formatDuration(durationToFormat: number) {
     const formatedDuration =
       durationToFormat - 0.6 > Math.floor(durationToFormat)
@@ -41,10 +47,13 @@ export default function MusicCard() {
   function restartAudio() {
     audioRef.current.currentTime = 0;
     setDuration(formatDuration(audioRef.current?.duration / 60));
+    setRemainingDuration(0)
   }
 
   useEffect(() => {
     const initialDuration = audioRef.current?.duration / 60;
+
+    setRemainingDuration(formatRemainingDuration(remainingDuration))
 
     duration == 0
       ? setDuration(formatDuration(initialDuration))
@@ -62,7 +71,8 @@ export default function MusicCard() {
       audioRef.current.play();
       const timer = setInterval(
         () => {
-          setRemainingDuration( remainingDuration + 0.01)
+          setRemainingDuration( parseFloat((remainingDuration + 0.01).toPrecision(3)));
+          
          if( typeof duration == "number"){
             const timerVerify = Number.isInteger(duration * duration)
               ? setDuration(duration - 0.41)
@@ -136,7 +146,7 @@ export default function MusicCard() {
         {typeof duration == "number" ? formatTimer(duration) : "00:00"}
       </Styled.Timer>
       <Styled.Timer className={robotoRegular.className}>
-        {remainingDuration}
+        { remainingDuration == 0 ? '00:00' : formatTimer(remainingDuration)}
       </Styled.Timer>
     </Styled.MusicCard>
   );

@@ -30,10 +30,14 @@ export default function MusicCard() {
     }
   }
 
-function formatRemainingDuration(remainingDurationToFormat : number){
- const formatedRemainingDuration = Number.isInteger(remainingDurationToFormat - 0.6) ? Math.ceil(remainingDurationToFormat) : remainingDurationToFormat;
-return formatedRemainingDuration;
-}
+  function formatRemainingDuration(remainingDurationToFormat: number) {
+    const formatedRemainingDuration = Number.isInteger(
+      remainingDurationToFormat - 0.6
+    )
+      ? Math.ceil(remainingDurationToFormat)
+      : remainingDurationToFormat;
+    return formatedRemainingDuration;
+  }
 
   function formatDuration(durationToFormat: number) {
     const formatedDuration =
@@ -47,13 +51,13 @@ return formatedRemainingDuration;
   function restartAudio() {
     audioRef.current.currentTime = 0;
     setDuration(formatDuration(audioRef.current?.duration / 60));
-    setRemainingDuration(0)
+    setRemainingDuration(0);
   }
 
   useEffect(() => {
     const initialDuration = audioRef.current?.duration / 60;
 
-    setRemainingDuration(formatRemainingDuration(remainingDuration))
+    setRemainingDuration(formatRemainingDuration(remainingDuration));
 
     duration == 0
       ? setDuration(formatDuration(initialDuration))
@@ -69,20 +73,19 @@ return formatedRemainingDuration;
 
     if (isPlaying) {
       audioRef.current.play();
-      const timer = setInterval(
-        () => {
-          setRemainingDuration( parseFloat((remainingDuration + 0.01).toPrecision(3)));
-          
-         if( typeof duration == "number"){
-            const timerVerify = Number.isInteger(duration * duration)
-              ? setDuration(duration - 0.41)
-              : setDuration(duration - 0.01)
+      const timer = setInterval(() => {
+        setRemainingDuration(
+          parseFloat((remainingDuration + 0.01).toPrecision(3))
+        );
 
-              return timerVerify
-            }
-          },
-        1000
-      );
+        if (typeof duration == "number") {
+          const timerVerify = Number.isInteger(duration * duration)
+            ? setDuration(duration - 0.41)
+            : setDuration(duration - 0.01);
+
+          return timerVerify;
+        }
+      }, 1000);
       return () => clearInterval(timer);
     } else {
       audioRef.current.pause();
@@ -146,7 +149,7 @@ return formatedRemainingDuration;
         {typeof duration == "number" ? formatTimer(duration) : "00:00"}
       </Styled.Timer>
       <Styled.Timer className={robotoRegular.className}>
-        { remainingDuration == 0 ? '00:00' : formatTimer(remainingDuration)}
+        {remainingDuration == 0 ? "00:00" : formatTimer(remainingDuration)}
       </Styled.Timer>
     </Styled.MusicCard>
   );

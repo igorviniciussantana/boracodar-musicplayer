@@ -30,6 +30,13 @@ Acesse o protótipo disponibilizado pela Rocketseat clicando no botão abaixo:
 <a href="https://www.figma.com/file/aUPz0jeV4vtvVcyIASj0RA/%23boraCodar---Desafio-1?node-id=1128%3A22&t=1zXSyQs8rmFfMeG4-1
 ">![Figma](https://img.shields.io/badge/Acessar%20Protótipo-471F08?style=for-the-badge&logo=figma&logoColor=white)</a>
 
+<h3>🔗 - Deploy</h3>
+
+Acesse o projeto em produção clicando no botão abaixo:
+
+<a href="https://boracodar-musicplayer.vercel.app" target='_blank'>![Vercel](https://img.shields.io/badge/Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)</a>
+
+
 ## 👤 - Autor
 
 <table>

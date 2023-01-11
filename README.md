@@ -36,6 +36,37 @@ Acesse o projeto em produção clicando no botão abaixo:
 
 <a href="https://boracodar-musicplayer.vercel.app" target='_blank'>![Vercel](https://img.shields.io/badge/Deploy-000000?style=for-the-badge&logo=vercel&logoColor=white)</a>
 
+<h3> ✔ - Requisitos</h3>
+
+Para rodar o projeto na sua máquina é necessário:
+
+- Editor de Códigos(como VS Code)
+- Git
+- NodeJS
+- Navegador
+
+<h3> 🖥 - Rodando Localmente</h3>
+
+Primeiro clone o projeto na sua máquina
+
+```bash
+git clone https://github.com/igorviniciussantana/boracodar-musicplayer.git
+cd boracodar-musicplayer
+```
+
+Instale as dependências
+
+```bash
+npm install
+ou
+yarn
+```
+
+Rodando o Projeto
+```bash
+npm run dev
+```
+
 
 ## 👤 - Autor
 

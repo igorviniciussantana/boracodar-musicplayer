@@ -7,7 +7,7 @@
 
 - [Acessar Desafio](https://boracodar.dev)
 
-## Funcionalidades Desenvolvidas
+## 👷‍♂️ - Funcionalidades Desenvolvidas
 
 - [X] Play e Pause no Áudio
 - [X] Restart da música
@@ -15,7 +15,7 @@
 - [X] Timer regressivo e progressivo
 - [X] Responsividade
 
-## Tecnologias
+## 🛠 - Tecnologias
 
 ![NextJS](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
@@ -28,7 +28,7 @@
 Acesse o protótipo disponibilizado pela Rocketseat clicando no botão abaixo:
 
 <a href="https://www.figma.com/file/aUPz0jeV4vtvVcyIASj0RA/%23boraCodar---Desafio-1?node-id=1128%3A22&t=1zXSyQs8rmFfMeG4-1
-">![Figma](https://img.shields.io/badge/Acessar%20Protótipo-471F08?style=for-the-badge&logo=figma&logoColor=white)</a>
+">![Figma](https://img.shields.io/badge/Acessar%20Protótipo-2A2141?style=for-the-badge&logo=figma&logoColor=white)</a>
 
 <h3>🔗 - Deploy</h3>
 

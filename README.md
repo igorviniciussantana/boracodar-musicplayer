@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![bannerMusicPlayer](https://user-images.githubusercontent.com/86114583/211811007-5c4861f9-b558-4e71-aaa9-43fb2bcc618f.png)
 
-## Getting Started
 
-First, run the development server:
+<h1 align='center'>Music Player - #boraCodar</h1>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<p> Esse projeto foi desenvolvido durante o primeiro desafio semanal da Rocketseat, chamado #boraCodar. O projeto foi desenvolvido em <b>NextJS</b> , o principal framework React da atualidade. As funcionalidades estão expostas abaixo.</p>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Acessar Desafio](https://boracodar.dev)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades Desenvolvidas
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- [X] Play e Pause no Áudio
+- [X] Restart da música
+- [X] Progress Bar funcional
+- [X] Timer regressivo e progressivo
+- [X] Responsividade
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Tecnologias
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+![NextJS](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
+![Styled-Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![SASS](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+<h3>🎨 - Protótipo</h3>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Acesse o protótipo disponibilizado pela Rocketseat clicando no botão abaixo:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<a href="https://www.figma.com/file/aUPz0jeV4vtvVcyIASj0RA/%23boraCodar---Desafio-1?node-id=1128%3A22&t=1zXSyQs8rmFfMeG4-1
+">![Figma](https://img.shields.io/badge/Acessar%20Protótipo-471F08?style=for-the-badge&logo=figma&logoColor=white)</a>
 
-## Deploy on Vercel
+## 👤 - Autor
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/igorviniciussantana"><img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/86114583?v=4" width="100px;" alt=""/><br /><sub><b>Igor Vinicius</b></sub></a><br /><br /><a href="https://linkedin.com/in/igorviniciussantana"><img src="https://user-images.githubusercontent.com/86114583/192514843-1087a34f-74f9-46aa-94fa-e824950af81f.svg" width="20px"/></a>⠀<a href="mailto:igor.santana@estudante.ifms.edu.br"><img src="https://user-images.githubusercontent.com/86114583/192515071-4fa6bce6-6ee9-49ca-9395-c17e74075a20.svg" width="20px"/></a>⠀<a href="https://behance.net/igorvinicius8"><img src="https://user-images.githubusercontent.com/86114583/192515924-e754ab5f-d7bc-416f-a3f9-0b6e3e81eb6c.svg" width="20px"/></a>
+    </td>
+    </tr>
+    </table>

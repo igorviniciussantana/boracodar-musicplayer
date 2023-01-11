@@ -1,13 +1,12 @@
 import styled, { keyframes } from "styled-components";
 
-
 const progressload = keyframes`
 from{
   width: 0%
 }to{
   width: 100%;
 }
-`
+`;
 
 export const MusicCard = styled.main`
   background-color: #2a2141;
@@ -115,26 +114,24 @@ export const IconBox = styled.div`
 `;
 
 export const ProgressWrapper = styled.div`
-@media screen and (min-width: 800px){
-  display: none;
-}
-width: 100%;
-height: 0.75rem;
-background-color: rgba(217, 217, 217, 0.3);
-border-radius: 10rem;
-overflow: hidden;
-position: relative;
-margin-top: 1rem;
-
-`
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+  width: 100%;
+  height: 0.75rem;
+  background-color: rgba(217, 217, 217, 0.3);
+  border-radius: 10rem;
+  overflow: hidden;
+  position: relative;
+  margin-top: 1rem;
+`;
 export const ProgressBar = styled.div`
-height: 100%;
-background-color: rgba(217, 217, 217, 0.8);
-position: absolute;
-top: 0;
-left: 0;
-
-`
+  height: 100%;
+  background-color: rgba(217, 217, 217, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+`;
 export const TimerWrapper = styled.div`
   display: flex;
   width: 100%;

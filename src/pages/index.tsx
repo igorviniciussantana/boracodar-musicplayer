@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
-import {MusicCard} from './../components/components'
+import Link from 'next/link'
+import {MusicCard, Footer} from './../components/components'
 
 export default function Home() {
   return (
@@ -11,8 +12,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-     <main>
+     <main className='app'>
 <MusicCard />
+<Footer />
       </main>
     </>
   )

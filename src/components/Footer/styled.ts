@@ -1,10 +1,9 @@
 import styled from "styled-components";
 
 export const Footer = styled.footer`
-justify-self: flex-end;
 color: white;
-position: absolute;
-bottom: 10px;
+
+margin-top: 1rem;
 
 a{
    

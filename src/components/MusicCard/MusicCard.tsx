@@ -57,10 +57,15 @@ export default function MusicCard() {
     setRemainingDuration(0);
   }
 
+ 
+
   useEffect(() => {
     if (!audioRef.current) {
       return;
     }
+
+    // uncoment this line if you are in development
+    setInitialDuration(audioRef.current.duration / 60);
 
     if (isLoaded) {
       setInitialDuration(audioRef.current.duration / 60);
@@ -79,8 +84,6 @@ export default function MusicCard() {
 
     if (isPlaying) {
       audioRef.current.play();
-      if (audioRef.current.currentTime == 0) {
-      }
 
       const timer = setInterval(() => {
         setRemainingDuration(
@@ -158,6 +161,11 @@ export default function MusicCard() {
         }
         preload="metadata"
       />
+
+<Styled.ProgressWrapper>
+  
+<Styled.ProgressBar style={{width: `${typeof duration == 'number' ? remainingDuration * 100 / formatDuration(parseFloat(initialDuration.toPrecision(3))) : '0'}%`}}/>
+</Styled.ProgressWrapper>
 
       <Styled.TimerWrapper className="timer">
         <Styled.Timer className={robotoRegular.className}>

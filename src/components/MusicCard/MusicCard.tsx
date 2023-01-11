@@ -65,7 +65,7 @@ export default function MusicCard() {
     }
 
     // uncoment this line if you are in development
-    setInitialDuration(audioRef.current.duration / 60);
+   // setInitialDuration(audioRef.current.duration / 60);
 
     if (isLoaded) {
       setInitialDuration(audioRef.current.duration / 60);
@@ -163,7 +163,6 @@ export default function MusicCard() {
       />
 
 <Styled.ProgressWrapper>
-  
 <Styled.ProgressBar style={{width: `${typeof duration == 'number' ? remainingDuration * 100 / formatDuration(parseFloat(initialDuration.toPrecision(3))) : '0'}%`}}/>
 </Styled.ProgressWrapper>
 

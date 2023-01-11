@@ -115,12 +115,16 @@ export const IconBox = styled.div`
 `;
 
 export const ProgressWrapper = styled.div`
+@media screen and (min-width: 800px){
+  display: none;
+}
 width: 100%;
-height: 1rem;
+height: 0.75rem;
 background-color: rgba(217, 217, 217, 0.3);
 border-radius: 10rem;
 overflow: hidden;
 position: relative;
+margin-top: 1rem;
 
 `
 export const ProgressBar = styled.div`
